@@ -52,6 +52,10 @@ namespace extOSC.PlayMaker.Events
         [Tooltip("Store the message value in a variable.")]
         public TFsmValue MessageStoreValue;
 
+        [UIHint(UIHint.Variable)]
+        [Tooltip("Store the sender ip address value in a variable.")]
+        public FsmString StoreSenderIPAddress;
+        
         #endregion
 
         #region Public Methods
@@ -78,6 +82,8 @@ namespace extOSC.PlayMaker.Events
 
                 if (MessageStoreValue != null)
                     MessageStoreValue.RawValue = value;
+
+                StoreSenderIPAddress.Value = message.Ip.ToString();
             }
         }
 
